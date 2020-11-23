@@ -9,15 +9,13 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install Django 
 pip install django
 ```
 
-## Usage
+## Execution
 
-```python
-import foobar
-
-foobar.pluralize('word') # returns 'words'
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
+```bash
+django manage.py runserver
 ```
+
+Read more from [here](https://docs.djangoproject.com/en/3.0/topics/migrations/) to perform the initial database migrations
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
