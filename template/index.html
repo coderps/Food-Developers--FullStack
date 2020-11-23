@@ -1,0 +1,166 @@
+{% load staticfiles %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device=width, initia-scale-1,0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Find Your Food </title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <link href="{%static 'css/Style.css' %}" rel="stylesheet" />
+</head>
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light" style="z-index: 1000; width: 100%; position: fixed; background-color: white;">
+            <a href="#top" class="navbar-brand ml-3">International<span style="color:#00E8E8;" >Food Developers</span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle Navigation">
+            <span class="navbar-toggler-icon"></span>                
+            </button>
+
+            <div class="collapse navbar-collapse"></div>
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                
+               <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a href="#top" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                            <a href="#blogs" class="nav-link">Blogs</a>
+                    </li>
+                    <li class="nav-item">
+                            <a href="#recipies" class="nav-link">Recipies</a>
+                    </li>
+                    <li class="nav-item">
+                            <a href="#rfinder" class="nav-link">Resturant Finder</a>
+                    </li>
+                    <li class="nav-item">
+                            <a href="#contactus" class="nav-link">Contact us</a>
+                    </li>
+               </ul> 
+
+               <form class="form-inline my-2 my-lg-0" style="text-align: right;">
+                   <button class="btn menu-right-btn border" type="submit">
+                        <a href="{% url 'log_in' %}" style="text-decoration: none;">LOGIN/SIGNUP</a>
+                   </button>
+               </form>
+
+
+            </div>
+
+        </nav>
+    </header>
+
+    <main style="margin-top: 0;">
+        <div class="container-fluid" id="top">
+            <div class="site-content">
+                <div class="d-flex justify-content-center">
+                    <div class="d-flex flex-column">
+                        <br><br><br>
+                        <h1 class="site-title">International Food Developers UI</h1>
+                        <div style="height: 250px;"></div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+
+            <div class="section-1" id="blogs">
+                <div class="container text-center">
+                    <br>
+                    <h1 class="heading-1">User Blogs</h1>
+                    <p class="para-1">Users can write blogs regarding their experiences as well as about the overall experience in the city of Rostock.</p>
+                    <div class="row justify-content-center text-center">
+                        <a href="{% url 'blogs' %}" style="text-decoration: none;">
+                            <div class="col-md-4">
+                                <div class="card blogs_link" style="width: 20rem;">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Click Here</h4>
+                                        <p class="card-text">To Visit The Blogs Page</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-2" id="recipies">
+                <div class="container-fluid">
+                    <div class="d-flex justify-content-end">
+                        <div class="d-flex flex-column">
+                            <h1 class="heading-1">Browse over the Recipes</h1>
+                            <p class="para"> Or write a one of your own </p>
+
+                            <a href="{% url 'recipes' %}" style="text-decoration: none;">
+                                <input type="button" value="Browse Now" class="btn btn-danger"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-3" id="rfinder">
+                <div class="container text-center">
+                    <h1 class="heading-1">Find Restaurants in Rostock</h1>
+                    <p class="para-1">Users can find restaurants according to the area they live in or are visiting just by entering the area code of the place. The system then returns all the populated list of restaurants for the user to have the best experience.</p>
+                    <div class="row justify-content-center text-center">
+                        <a href="{% url 'rfinder' %}" style="text-decoration: none;">
+                            <div class="col-md-4">
+                                <div class="card blogs_link" style="width: 20rem;">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Click Here</h4>
+                                        <p class="card-text">To Visit The Blogs Page</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+
+    </main>
+
+    <footer>
+        <div class="section-5 text-center">
+            <br><br><br>
+            <div class="form-inline justify-content-center" id="contactus">
+                <input type="text" name="Email" id="email" placeholder="Email" size="40" class="form-control px-4 py-2">
+                <input type="button" value="Contact US" class="btn btn-danger px-4 py-2">
+            </div>
+
+            <div class="social" style="margin: 5%;">
+                <div class="d-flex flex-row justify-content-center">
+                    <i class="fab fa-facebook-f m-2"></i>
+                    <i class="fab fa-twitter m-2"></i>
+                    <i class="fab fa-instagram m-2"></i>
+                    <i class="fab fa-youtube m-2"></i>
+                </div>
+            </div>
+
+            <hr>
+            <h5 style="color: lightseagreen;">&copy;2019 Created by International Food Developers</h5>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+        window.sr = ScrollReveal({ duration :1000 });
+        sr.Reveal('.site-content .d-flex');
+        sr.Reveal('.section-1 .card');
+        sr.Reveal('.section-2 .d-flex');
+        sr.Reveal('.section-3 .col-md-4');
+        sr.Reveal('.section-4 .col-md-7, .col-md-5');
+        sr.Reveal('');
+    </script>
+</body>
+</html>

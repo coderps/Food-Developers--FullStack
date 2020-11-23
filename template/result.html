@@ -1,0 +1,103 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device=width, initia-scale-1,0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Restaurant Finder </title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <link href="{%static 'css/Style.css' %}" rel="stylesheet" />
+    <link href="{%static 'css/blog.css' %}" rel="stylesheet" />
+    <link href="{%static 'css/results.css' %}" rel="stylesheet" />
+</head>
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light" style="z-index: 1000; width: 100%; position: fixed; background-color: white;">
+            <a href="#top" class="navbar-brand ml-3">International<span style="color:#00E8E8;" >Food Developers</span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle Navigation">
+            <span class="navbar-toggler-icon"></span>                
+            </button>
+
+            <div class="collapse navbar-collapse"></div>
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                
+               <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a href="#top" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                            <a href="{% url 'blogs' %}" class="nav-link">Blogs</a>
+                    </li>
+                    <li class="nav-item">
+                            <a href="{% url 'recipes' %}" class="nav-link">Recipies</a>
+                    </li>
+                    <li class="nav-item">
+                            <a href="" class="nav-link">Resturant Finder</a>
+                    </li>
+                    <li class="nav-item">
+                            <a href="" class="nav-link">Contact us</a>
+                    </li>
+               </ul>
+               <form class="form-inline my-2 my-lg-0" style="text-align: right;">
+                   <button class="btn menu-right-btn border" type="submit">
+                        <a href="{% url 'log_out' %}" style="text-decoration: none;">LOGOUT</a>
+                   </button>
+               </form>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+    	<section class="blog-area pt-5 pb-5" id="read_blogs">
+                <div class="container">
+                    <form method="POST">
+						{% csrf_token %}
+						<input style="width: 70%;" type="text" name="postalcode" placeholder="Enter the Postal Code">
+						<input type="submit" value="Submit"/>
+					</form>
+				</div>
+					<div class="row">
+                        <div class="col-xl-12 text-center pb-3">
+                            <div class="section-title service-title">
+                                <br><br>
+                                <h2>Search Results</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-left: 5%;">
+                        {% for i in result %}
+                        <div class="col-xl-4 col-lg-4 col-md-6 mb-30" style="max-width: 400px;">
+                            <div class="blog-wrapper home-blog-wrapper white-bg" style="min-height: 230px;">
+                                <div class="blog-thumb">
+                                </div>
+                                <div class="meta-info">
+                                    <ul>
+                                        <li class="posts-time">{{ i.cid }}</li>
+                                    </ul>
+                                </div>
+                                <div class="blog-content home-blog">
+                                    <h2 class="blog-title">
+                                        <a target="_blank" id="{{ i.rname }}">
+                                            <div class="newdiv" id="{{ i.rname }}{{ i.cid }}" onclick="var a = document.getElementById('{{ i.rname }}'); var r = document.getElementById('{{ i.rname }}{{ i.cid }}').innerText; r = r.split(' '); r = r.join('+'); a.href = 'http://www.google.com/search?q=' + r;">
+                                                {{ i.rname }}
+                                            </div>
+                                        </a>
+                                    </h2>
+                                    <p id="desc">{{ i.rlocation }}<br>{{ i.area }}</p>
+                                </div>
+                            </div>
+                            <br>
+                        </div>
+                        {%endfor%}
+                    </div>
+		</section>
+
+    </main>
+</body>
+</html>

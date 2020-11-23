@@ -1,0 +1,56 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="{%static 'css/login_page.css' %}" rel="stylesheet" />
+	<style type="text/css">
+		@import 'https://fonts.googleapis.com/css?family=Baloo+Tamma';
+		a {
+		  width: 100px;
+		  height: 30px;
+		  padding: 5px 10px;
+		  color: white;
+		  text-align: center;
+		  line-height: 35px;
+		  opacity: 0.4;
+		  font-family: "Baloo Tamma", cursive;
+		  display: block;
+		  position: relative;
+		  cursor: pointer;
+		  transition: all 0.3s ease-in;
+		  text-decoration: none;
+		  margin-top: -50px;
+		}
+		.centered {
+			margin-top: 125px;
+		}
+		.whead {
+			margin-left: 45%;
+		}
+	</style>
+</head>
+<body>
+
+<form class="formoid-biz-red centered" style="background-color:#1A2223; font-size:14px;font-family:'Open Sans','Helvetica Neue', 'Helvetica', Arial, Verdana, sans-serif;color:#ECECEC;max-width:480px;min-width:150px" method="POST" action="my_view/">
+	{% csrf_token %}	
+	<div class="title">
+		<h2> Please Login to Continue</h2>
+	</div>
+	
+	<div>
+		<input class="large" type="text" name="username" placeholder="Username" required/>
+	</div>
+	
+	<div>
+		<input class="large" type="password" name="password" value="" placeholder="Password" required/>
+	</div>
+
+	<div class="submit">
+		<input type="submit" value="Login"/>
+	</div>
+	
+	<a href="{% url 'signup' %}" class="newuser">New User?</a>
+</form>
+
+</body>
+</html>
